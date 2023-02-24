@@ -30,7 +30,8 @@ app.use(bodyParser.json());
 //Cookie Parser
 app.use(cookieParser());
 
-//TODO: Import your controllers here
+//Creating routers
+const auth = require('./routes/auth');
 
 //Connection to Database
 connectDB();
@@ -68,6 +69,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //TODO: Create your Routers here
+app.use('/api/v1/auth', auth);
 
 app.use(errorHandler);
 
